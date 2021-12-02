@@ -6,8 +6,8 @@ spec:
   containers:
   - name: kubectl
     image: alpine:latest
-    command:
-    - /bin/cat
+#     command:
+#     - /bin/cat
     tty: true    
   - name: kaniko
     image: gcr.io/kaniko-project/executor:latest
