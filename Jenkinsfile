@@ -5,8 +5,8 @@ pipeline {
   }
 
   agent {
-      label 'master'
-    kubernetes {
+      // label 'master'
+    any {
       yamlFile 'builder.yaml'
     }
   }
