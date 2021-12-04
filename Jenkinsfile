@@ -19,7 +19,7 @@ pipeline {
             sh '''
             /kaniko/executor --dockerfile `pwd`/Dockerfile \
                              --context `pwd` \
-                             --destination=cloudzune/myweb:${BUILD_NUMBER}
+                             --destination=cloudzune/myweb:v1.0.0
             '''
           }
         }
