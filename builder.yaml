@@ -5,12 +5,12 @@ metadata:
 spec:
   containers:
   - name: kubectl
-    image: alpine:latest
-#     command:
-#     - /bin/cat
+    image: joshendriks/alpine-k8s:latest
+    command:
+    - /bin/cat
     tty: true    
   - name: kaniko
-    image: gcr.io/kaniko-project/executor:latest
+    image: gcr.io/kaniko-project/executor:debug
     command:
     - /busybox/cat
     tty: true
