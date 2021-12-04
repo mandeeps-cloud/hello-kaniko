@@ -5,6 +5,7 @@ pipeline {
   }
 
   agent {
+      label 'master'
     kubernetes {
       yamlFile 'builder.yaml'
     }
@@ -19,23 +20,23 @@ pipeline {
             sh '''
             /kaniko/executor --dockerfile `pwd`/Dockerfile \
                              --context `pwd` \
-                             --destination=cloudzune/myweb:v1.0.0
+                             --destination=cloudzune/myweb:${BUILD_NUMBER}
             '''
           }
         }
       }
     }
 
-//     stage('Deploy App to Kubernetes') {     
-//       steps {
-//         container('kubectl') {
-//           withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
-//             sh 'sed -i "s/<TAG>/${BUILD_NUMBER}/" myweb.yaml'
-//             sh 'kubectl apply -f myweb.yaml'
-//           }
-//         }
-//       }
-//     }
+    // stage('Deploy App to Kubernetes') {     
+    //   steps {
+    //     container('kubectl') {
+    //       withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
+    //         sh 'sed -i "s/<TAG>/${BUILD_NUMBER}/" myweb.yaml'
+    //         sh 'kubectl apply -f myweb.yaml'
+    //       }
+    //     }
+    //   }
+    // }
   
   }
 }
