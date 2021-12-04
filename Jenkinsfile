@@ -5,7 +5,7 @@ pipeline {
   }
 
   agent {
-    kubernetes {
+    any {
       yamlFile 'builder.yaml'
     }
   }
