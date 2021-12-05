@@ -23,7 +23,7 @@ spec:
         app: myweb
     spec:
       containers:
-      - image: cloudzune/myweb
+      - image: cloudzune/indianhandicrafts:latest
         imagePullPolicy: Always
         name: myweb
 
